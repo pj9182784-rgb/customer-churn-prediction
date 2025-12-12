@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-MODEL_PATH = "D:\\project2\\code\\vw_churn_training_lr.pkl"
+MODEL_PATH = "vw_churn_training_lr.pkl"
 model = joblib.load(MODEL_PATH)
 st.title("customer churn Predictor")
 
@@ -34,4 +34,5 @@ if st.button("Predict"):
        }])
     
     pred= model.predict(input_df)[0]
+
     st.success(f"Prediction: {'Churn' if pred == 1 else 'Not Churn'}")
